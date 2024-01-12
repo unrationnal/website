@@ -1,0 +1,115 @@
+@import "../../../layouts/colors";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+body {
+    background: hsl(224, 32%, 12%);
+    background-image: conic-gradient(
+    from 0deg at 50% 50%,
+    blue,
+    purple,
+    purple,
+    blue
+    );
+    background-blend-mode: multiply;
+}
+
+
+#project-wrapper {
+    position: relative;
+    padding: 5vmax 0;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    gap: 55vh;
+    margin-inline: auto;
+    align-items: center;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 85%;
+    aspect-ratio: 1.50;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.159);
+    
+    background-color: #04011c;
+    background-image: linear-gradient(90deg, #04011cd0, #04011ce2) ,url("../../../../assets/granular_bg.png");
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+
+    opacity: 0;
+
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 90%;
+        margin-inline: auto;
+
+        .blob {
+            display: block;
+            position: absolute;
+            z-index: 1;
+            opacity: 0.3;
+            filter: blur(40px);
+            width: 800px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+          
+
+            background: hsl(225, 42%, 54%);
+            background-image: conic-gradient(
+                from 0.25turn at 50% 30%,
+            map-get($blue-planet, primary),
+            map-get($purple-haze, accent),
+            map-get($purple-haze, accent),
+            map-get($blue-planet, primary),
+            );
+            background-blend-mode: multiply;
+
+        }
+    }
+    
+    h2 {
+        color : #fff;
+        font-size: 2.7rem;   
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+    }
+    
+    h4 {
+        color: #c8c7c7;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+#scroll-line {
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: 
+    linear-gradient(to bottom, transparent, $neon-orange)
+    ;
+    top: 0;
+    left: 20%;
+    transform: translateX(-50%);
+}
