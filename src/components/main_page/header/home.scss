@@ -1,33 +1,40 @@
 // mon fichier css
-@import "../../layouts/colors";
+@import "../../../layouts/colors";
 
 .msg_home{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: grid;
     place-items: center;
-    background:
-    radial-gradient(circle at 80%  50%,#000, map-get($map:$blue-planet, $key:primary), map-get($map:$blue-planet, $key:secondary),map-get($map:$blue-planet, $key:primary), #000);
+    // background:
+    // radial-gradient(circle at 80%  50%,#000, map-get($map:$blue-planet, $key:primary), map-get($map:$blue-planet, $key:secondary),map-get($map:$blue-planet, $key:primary), #000);
 
-
+    background: transparent;
     //linear-gradient(90deg, map-get($map: $blue-planet, $key:primary), map-get($map: $green-nebula, $key:secondary)),
     //linear-gradient(to left, map-get($map: $purple-haze, $key: secondary), map-get($map: $green-nebula, $key:secondary));
 
     div {
-        background: linear-gradient(90deg, map-get($map: $green-nebula, $key:text), map-get($map: $purple-haze, $key:background));
+        // background: linear-gradient(90deg, map-get($map: $green-nebula, $key:text), map-get($map: $purple-haze, $key:background));
+        background: linear-gradient(90deg, $bright-blue, $bright-purple);
         background-clip: text;
+        width: 50%;
+        margin-inline: auto;
     }
 
     h1{
+        font-family: "Poppins", sans-serif;
+        font-weight: 800;
         text-align: center;
-        font-size: 58px ;
+        font-size: 1em ;
         color: transparent;
     }
-
+    
     p{
-        color: white;
+        font-family: "Poppins", sans-serif;
+        font-weight: 100;
+        color: #d3d3d3;
         text-align: center;
-        font-size: 24px;
+        font-size: 0.5em;
     }
 
     span{

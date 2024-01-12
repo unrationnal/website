@@ -8,7 +8,7 @@ export const ProjectCard:FC = () => {
     const [appeared, setAppeared] = useState(false)
     
     const inStyle : React.CSSProperties = appeared ? {
-        animation : "appear 800ms 200ms ease-in both"
+        animation : "appear 500ms 200ms ease-in both"
     } : {}
 
     useEffect(() => {

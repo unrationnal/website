@@ -1,0 +1,27 @@
+@import "../../layouts/colors" ;
+
+#bg{
+
+    div {
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        width: 800px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        translate: -50% -50%;
+       
+        background-color: #3f3f3f;
+        // background-color: #11041f;
+        filter: blur(300px);
+        animation: spin 30s linear infinite;
+    }
+
+   
+}
+
+
+@keyframes spin {
+    from {rotate: 0deg;}
+    to {rotate: 180deg;}
+}

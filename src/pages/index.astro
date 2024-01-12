@@ -1,13 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import App from "../layouts/App.astro"
+import Navbar from "../components/navbar/navbar.astro"
 
-import { Home } from "../components/main_page/home"
+import { Home } from "../components/main_page/header/home"
 import ProjectWrapper from '../components/main_page/project_card/projectWrapper.astro';
+
+import Decoration from '../components/decoration/decoration.astro';
 
 ---
 
 <Layout title="Welcome to Astro.">
-  <Home />
-  <ProjectWrapper />
+  <Navbar />
+  <Decoration />
+  
+  
+  <App>
+    <Home />
+    <!-- <ProjectWrapper /> -->
+  </App>
+
 
 </Layout>
