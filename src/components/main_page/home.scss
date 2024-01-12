@@ -1,0 +1,49 @@
+// mon fichier css
+@import "../../layouts/colors";
+
+.msg_home{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background:
+    radial-gradient(circle at 80%  50%,#000, map-get($map:$blue-planet, $key:primary), map-get($map:$blue-planet, $key:secondary),map-get($map:$blue-planet, $key:primary), #000);
+
+
+    //linear-gradient(90deg, map-get($map: $blue-planet, $key:primary), map-get($map: $green-nebula, $key:secondary)),
+    //linear-gradient(to left, map-get($map: $purple-haze, $key: secondary), map-get($map: $green-nebula, $key:secondary));
+
+    div {
+        background: linear-gradient(90deg, map-get($map: $green-nebula, $key:text), map-get($map: $purple-haze, $key:background));
+        background-clip: text;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 58px ;
+        color: transparent;
+    }
+
+    p{
+        color: white;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    span{
+        animation: color-swap 2s linear 0s infinite alternate-reverse;
+    }
+}
+
+@keyframes color-swap {
+    from {
+        color: map-get($map: $blue-planet, $key:accent );
+    }
+    50%{
+        color: map-get($map: $blue-planet, $key:primary )
+    }
+    to{
+        color: $green;
+    }
+    
+}
