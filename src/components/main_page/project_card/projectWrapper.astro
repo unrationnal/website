@@ -2,15 +2,18 @@
 // wrapper around all the project cards
 
 import { ProjectCard } from "./project_card"
+import { GridCard } from "./grid_card"
 import { ScrollLine } from "./scrollLine"
 
 import "./project_card.scss"
 ---
 
-<section id="project-wrapper">
+<!-- <section id="project-wrapper">
     <ScrollLine client:only />
 
     <ProjectCard client:visible />
     <ProjectCard client:visible />
     <ProjectCard client:visible />
-</section>
+</section> -->
+
+<GridCard />
