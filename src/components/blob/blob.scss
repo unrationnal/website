@@ -3,23 +3,27 @@
 
 #blob{
     position: fixed ;
+    left: 50%;
+    top: 50%;
     z-index: 2;
     translate: -50% -50%;
-    width : 15vmax ;
+    width : 500px ;
     aspect-ratio : 1 ;
     border-radius: 50%;
     scale : 1 1.5;   
-    background : conic-gradient($iris, $accent-purple, $bright-green, $bright-blue, $bright-purple); 
+    // background : conic-gradient($iris, $accent-purple, $bright-green, $bright-blue, $bright-purple); 
+    background: linear-gradient(to right, $bright-purple, $bright-blue);
+    transition: transform 1500ms linear;
     animation: turn 40s linear infinite alternate-reverse;
 }
 
 #glass {
-    position: absolute;
+    position: fixed;
     z-index: 3;
     inset: 0;
-    backdrop-filter: blur(150px);
+    backdrop-filter: blur(50px) brightness(30%);
 }
 @keyframes turn{
-    from {rotate: 0deg ;}
-    to {rotate: 360deg ;}
+    from {scale: 1 1.5 ;}
+    to {scale: 1.5 1 ;}
 }

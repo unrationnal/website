@@ -5,23 +5,22 @@ import Navbar from "../components/navbar/navbar.astro"
 
 import { Formulaire } from '../components/main_page/formulaire';
 
-import Blob from '../components/blob/blob.astro';
 import { Home } from "../components/main_page/header/home"
 import ProjectWrapper from '../components/main_page/project_card/projectWrapper.astro';
 
 import Decoration from '../components/decoration/decoration.astro';
 
+import Blob from '../components/blob/blob.astro';
+
 ---
 
 <Layout title="Welcome to Astro.">
+  <Blob />
 
-  
-  <Decoration />
-  
-  
   <App>
-    <Home />
+    <Decoration />
     <Navbar />
+    <Home />
     <ProjectWrapper /> 
   </App>
 
