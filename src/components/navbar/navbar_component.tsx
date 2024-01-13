@@ -11,10 +11,15 @@ export const NavBar:FC = () => {
         <nav>
             <section>
                 <Logo />
-                <Option title="Home" link=""/>
-                <Option title="Blog" link=""/>
-                <Option title="Catalague" link=""/>
-                <Option title="Pricing" link=""/>
+
+                <ul>
+                    <Option title="Home" link=""/>
+                    <Option title="Blog" link=""/>
+                    <Option title="Catalague" link=""/>
+                    <Option title="Pricing" link=""/>
+                </ul>
+
+                <TrialButton />
             </section>
         </nav>
     )
@@ -27,8 +32,20 @@ interface OptionProps {
 
 const Option:FC<OptionProps> = ({title, link}) => {
     return (
-        <a href={link}>
-            {title}
-        </a>
+        <li>
+            <a href={link}>
+                {title}
+            </a>
+        </li>
+    )
+}
+
+const TrialButton = () => {
+    return (
+        <>
+        <button>
+            <h2>Get Early Access</h2>
+        </button>
+        </>
     )
 }
