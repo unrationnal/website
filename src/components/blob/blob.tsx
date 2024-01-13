@@ -8,11 +8,14 @@ export const BlobCursor: FC = () => {
     const [x, setX] = useState(0)
     const [y, setY] = useState(0)
 
+    const centerX = window.innerWidth / 2
+    const centerY = window.innerHeight / 2
+
     // update mouse position
     window.onmousemove = (e) => {
         const {clientX, clientY} = e
-        setX(clientX)
-        setY(clientY)
+        setX(clientX - centerX)
+        setY(clientY - centerY)
     
     }
 
@@ -30,8 +33,9 @@ interface BlobProps{
 }
 
 const Blob:FC<BlobProps> = ({x, y}) =>{
+    console.log(x, y)
     return <div id="blob" style={{
-        left : `${x}px`, top : `${y}px`
+        transform : `translateX(${x}px) translateY(${y}px)`
     }}>
         <div />
     </div>

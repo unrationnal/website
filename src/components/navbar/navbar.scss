@@ -35,23 +35,42 @@ nav {
         }
 
         a {
-            color: #fff;
+            color: #c0c0c0;
             text-decoration: none;
             font-size: 0.4em;
             font-family: "Poppins", sans-serif;
+            transition: color 200ms linear;
+
+            &:hover {
+                color : #fff;
+            }
         }
 
         button{
             border: none;
             outline: none;
+            display: flex;
+            justify-content: space-around;
+            gap: 1em;
+            align-items: center;
             background-color: #101010;
             padding-inline: 0.8em;
             border-radius: 0.5em;
+            transition: background-color 200ms linear;
+            cursor: pointer;
+
+            i {
+                color: #fff;
+            }
 
             h2{
                 font-size: 1.2em;
-                font-family: "Poppins", sans-serif;
+                font-family: "Roboto", sans-serif;
                 color : #fff;
+            }
+
+            &:hover {
+                background-color: #151515;
             }
         }
     }
@@ -62,6 +81,8 @@ nav {
     // border: solid lime;
     width: 9vmin;
     height: 9vmin;
+
+    filter: grayscale(100%) contrast(200%);
 
     img {
         width: 100%;

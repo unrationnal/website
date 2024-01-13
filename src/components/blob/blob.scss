@@ -3,23 +3,39 @@
 
 #blob{
     position: fixed ;
+<<<<<<< HEAD
     z-index: 2 ;
+=======
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+>>>>>>> 5f458a1df5415520e5f05430af0ed148df80ac43
     translate: -50% -50%;
-    width : 15vmax ;
+    width : 500px ;
     aspect-ratio : 1 ;
     border-radius: 50%;
     scale : 1 1.5;   
+<<<<<<< HEAD
     background : conic-gradient(map-get($map:$purple-haze, $key:primary), map-get($map: $green-nebula, $key:secondary)); 
+=======
+    // background : conic-gradient($iris, $accent-purple, $bright-green, $bright-blue, $bright-purple); 
+    background: linear-gradient(to right, $bright-purple, $bright-blue);
+    transition: transform 1500ms linear;
+>>>>>>> 5f458a1df5415520e5f05430af0ed148df80ac43
     animation: turn 40s linear infinite alternate-reverse;
 }
 
 #glass {
-    position: absolute;
+    position: fixed;
     z-index: 3;
     inset: 0;
+<<<<<<< HEAD
     backdrop-filter: blur(50px);
+=======
+    backdrop-filter: blur(50px) brightness(30%);
+>>>>>>> 5f458a1df5415520e5f05430af0ed148df80ac43
 }
 @keyframes turn{
-    from {rotate: 0deg ;}
-    to {rotate: 360deg ;}
+    from {scale: 1 1.5 ;}
+    to {scale: 1.5 1 ;}
 }

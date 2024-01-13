@@ -1,108 +1,27 @@
 @import "../../../layouts/colors";
+@import "../../../layouts/buttons";
 
 
+:root{
+    --slow-fast : cubic-bezier(0,.93,.41,.86);
+}
 
 
-
-#project-wrapper {
-    position: relative;
-    padding: 5vmax 0;
+#catalogue {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 1200px;
-    gap: 55vh;
-    margin-inline: auto;
-    align-items: center;
-}
+    justify-content: center;
+    gap: 2vmax;
+    padding-block: 5vmax;
 
-.project-card {
-    position: relative;
-    overflow: hidden;
-
-    width: 85%;
-    aspect-ratio: 1.50;
-    border-radius: 10px;
-    border: 1px solid rgba(128, 128, 128, 0.159);
-    
-    background-color: #0b121a;
-    // background-color: #04011c;
-    background-image: linear-gradient(90deg, #0b121ae6, #0b121ae7) ,url("../../../../assets/granular_bg.png");
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-
-    opacity: 0;
-
-    
-    div {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 90%;
-        margin-inline: auto;
-
-        .blob {
-            display: block;
-            position: absolute;
-            z-index: 1;
-            opacity: 0.3;
-            filter: blur(40px);
-            width: 800px;
-            aspect-ratio: 1;
-            border-radius: 50%;
-          
-
-            background: hsl(225, 42%, 54%);
-            background-image: conic-gradient(
-                from 0.25turn at 50% 30%,
-            map-get($blue-planet, primary),
-            map-get($purple-haze, accent),
-            map-get($purple-haze, accent),
-            map-get($blue-planet, primary),
-            );
-            background-blend-mode: multiply;
-
-        }
-    }
-    
     h2 {
-        color : #fff;
-        font-size: 2.7rem;   
         font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-    }
-    
-    h4 {
-        color: #c8c7c7;
-        font-size: 1rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
+        font-size: 5rem;
+        color: #fff;
+        margin-left: 1rem;
     }
 }
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-
-#scroll-line {
-    position: absolute;
-    height: 100%;
-    width: 2px;
-    background: 
-    linear-gradient(to bottom, transparent, $neon-orange)
-    ;
-    top: 0;
-    left: 20%;
-    transform: translateX(-50%);
-}
-
 
 #grid-card {
     width: 98% ;
@@ -112,21 +31,30 @@
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
 
+
     gap: 0.3em;
     
 
     div {
-        border : 2px solid rgba(230, 230, 250, 0.4) ;
+        position: relative;
+        outline : 2px solid rgba(230, 230, 250, 0.4) ;
         border-radius: 0.15em;
         width: 100%;
         height: 100%;
         background-color: #090909;
         background-repeat: no-repeat;
         background-size: cover;
-        // background-image: linear-gradient(90deg, #00060de6, #000914e7) ,url("../../../../assets/granular_bg.png");
+        background-image: linear-gradient(90deg, #090909, transparent 90%);
         box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+        transition: filter var(--slow-fast);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
 
         h2 {
+            margin-left: none;
             font-size: 1em;
             font-family: "Poppins", sans-serif;
             color: #fff;
@@ -135,13 +63,64 @@
         }
         
         h3 {
+            opacity: 0;
             width: 90%;
             margin-inline: auto;
             font-size: 0.8em;
             font-weight: 100;
-            font-family: "Poppins", sans-serif;
+            font-family: "Inter", sans-serif;
             color: #fff;
+            animation: intro-text-right 500ms var(--slow-fast) 200ms both;
         }
+
+        button {
+            background-color: transparent;
+            margin-left: 3em;
+            font-size: 0.5em;
+            font-family: 'Inter', sans-serif;
+            transition: background-position 2000ms;
+            @include classic-button();
+
+            border: 1px solid $bright-purple;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3em;
+            h4 {
+                font-family: 'Inter', sans-serif;
+            }
+            h4, i{
+                margin: 0;
+                padding: 0;
+                color: #fff;
+                transition: all 200ms;
+            }
+
+            &:hover {
+                i {
+                    margin-left: 0.2em;
+                }
+            }
+        }
+        
+        &::before{
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background-color: #00000051;
+            transition: opacity 500ms linear;
+            pointer-events: none;
+            opacity: 1;
+        }
+
+        &:hover {
+            &::before{
+                opacity: 0;
+            }
+        }
+
 
         &:nth-child(1){
             border-color: rgba(230, 230, 250, 0.4);
@@ -185,3 +164,25 @@
         }
     }
 }
+
+@keyframes intro-text {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes intro-text-right {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
