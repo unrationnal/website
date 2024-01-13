@@ -1,0 +1,49 @@
+
+@import "../../layouts/colors";
+
+#formulaire {
+   text-align: center;
+    color: white;
+    font-size: 18px;
+    position: fixed;
+    inset: 0; // permet de couvrir toute la page 
+    background-color: #090909;
+    z-index: 10; // met en avant un élément en fonction de n si n > n+1
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    .animation{
+        background-color: aqua;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        padding-top: 50vh;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        align-items: center;
+
+        h1{
+            font-style: italic;
+            color: map-get($map: $purple-haze, $key:secondary );
+        }
+
+        input{
+            padding: 5px;
+            color: white;       
+            border-radius: 10px;
+            background-color: transparent;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        button {
+            padding:0%;         
+            width: 200px;
+            background-color: transparent ;
+            border-radius: 10px;
+            color: white;
+        }
+    
+    }
+}
+
