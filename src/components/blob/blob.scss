@@ -8,7 +8,7 @@
     top: 50%;
     z-index: 2;
     translate: -50% -50%;
-    width : 500px ;
+    width : 15vmax ;
     aspect-ratio : 1 ;
     border-radius: 50%;
     scale : 1 1.5;   
@@ -19,7 +19,7 @@
 }
 
 #glass {
-    position: fixed;
+    position: absolute;
     z-index: 3;
     inset: 0;
     backdrop-filter: blur(50px) brightness(30%);

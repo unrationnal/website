@@ -1,5 +1,7 @@
 
 @import "../../layouts/colors";
+@import "../../layouts/font";
+@import "../../layouts/buttons";
 
 #formulaire {
    text-align: center;
@@ -13,10 +15,10 @@
     grid-template-columns: 50% 50%;
 
     .animation{
-        background-color: aqua;
+        background-color: rgba(127, 255, 212, 0.6);
     }
 
-    form{
+    section{
         display: flex;
         flex-direction: column;
         padding-top: 15vh;
@@ -24,27 +26,42 @@
         align-items: center;
 
         h1{
-            font-size:xx-large;
-            font-style: italic;
+            font-size: 2em;
+            font-family: $font-family-1;
             color: conic-gradient(map-get($map:$purple-haze, $key:primary), map-get($map: $green-nebula, $key:secondary));;
         }
 
+        p {
+            font-family: $font-family-3;
+        }
+
         input{
-            padding: 5px;
             color: white;  
-            width: 300px;     
-            border-radius: 10px;
             background-color: transparent;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: $font-family-4;
             text-align: center;
+            @include classic-button() ;
+            padding: 0.7em 1em;
+            min-width: 250px;
+            border : 1px solid black;
         }
         
         button {
-            padding:5px;         
-            width: 200px;
+            font-family: $font-family-4;
             background-color: transparent ;
-            border-radius: 10px;
-            color: white;
+            color: #000;
+            @include classic-button();
+            padding: 0.7em 1em;
+            border: 1px solid purple;
+        }
+
+        div {
+            background-color: lime;
+            display: flex;
+            align-items: center;
+            padding: 0.5em 1em;
+            border-radius: 0.2em;
+            gap: 1em;
         }
     
     }
