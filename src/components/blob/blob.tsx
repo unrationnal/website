@@ -33,7 +33,6 @@ interface BlobProps{
 }
 
 const Blob:FC<BlobProps> = ({x, y}) =>{
-    console.log(x, y)
     return <div id="blob" style={{
         transform : `translateX(${x}px) translateY(${y}px)`
     }}>

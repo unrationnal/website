@@ -4,14 +4,17 @@
 #blob{
     position: fixed ;
     z-index: 2 ;
-    top: 50%;
     left: 50%;
+    top: 50%;
+    z-index: 2;
     translate: -50% -50%;
     width : 15vmax ;
     aspect-ratio : 1 ;
     border-radius: 50%;
     scale : 1 1.5;   
-    background : conic-gradient(map-get($map:$purple-haze, $key:primary), map-get($map: $green-nebula, $key:secondary)); 
+
+    background: linear-gradient(to right, $bright-purple, $bright-blue);
+    transition: transform 1500ms linear;
     animation: turn 40s linear infinite alternate-reverse;
 }
 
@@ -19,8 +22,9 @@
     position: absolute;
     z-index: 3;
     inset: 0;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px) brightness(30%);
 }
+
 @keyframes turn{
     from {scale: 1 1.5 ;}
     to {scale: 1.5 1 ;}
