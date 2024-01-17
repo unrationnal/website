@@ -1,0 +1,38 @@
+
+@import "../../../layouts/font";
+@import "../../../layouts/colors";
+
+footer {
+    width: 100%;
+    height: clamp(300px, 50vh, 500px);
+    display: flex;
+    align-items: center;
+
+    background-image:
+    radial-gradient(circle at 30% 100%, $iris 0%, transparent 30%),
+    radial-gradient(circle at 50% 100%, $iris 0%, transparent 50%),
+    radial-gradient(circle at 70% 100%, $iris 0%, transparent 30%)
+    ;
+
+    h2 {
+        width: 70%;
+        margin-inline: auto;
+        text-align: center;
+        color: #fff;
+        font-family: $font-family-1;
+        font-size: 0.7em;
+    }
+
+    span {
+        background-image: linear-gradient(to right, $iris, $bright-blue);
+        background-size: 200% 100%;
+        background-position: 50% 100%;
+        transition: background-position 200ms linear;
+        background-clip: text;
+        color: transparent;
+
+        &:hover{
+            background-position: 100% 100%;
+        }
+    }
+}

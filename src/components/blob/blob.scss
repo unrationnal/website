@@ -3,26 +3,31 @@
 
 #blob{
     position: fixed ;
-    z-index: 2 ;
+    z-index: 20 ;
     left: 50%;
     top: 50%;
-    z-index: 2;
+    // z-index: 2;
+    pointer-events: none;
     translate: -50% -50%;
-    width : 15vmax ;
+    // width : 15vmax ;
+    width : 40px ;
     aspect-ratio : 1 ;
     border-radius: 50%;
-    scale : 1 1.5;   
-
-    background: linear-gradient(to right, $bright-purple, $bright-blue);
-    transition: transform 1500ms linear;
-    animation: turn 40s linear infinite alternate-reverse;
+    
+    background-color: #fff;
+    
+    transition: transform 200ms ease-out, width 200ms ease-out, filter 200ms ease-in-out;
+    // transition: transform 1500ms linear;
+    // scale : 1 1.5;   
+    // background: linear-gradient(to right, $bright-purple, $bright-blue);
+    // animation: turn 40s linear infinite alternate-reverse;
 }
 
 #glass {
     position: absolute;
     z-index: 3;
     inset: 0;
-    backdrop-filter: blur(50px) brightness(30%);
+    // backdrop-filter: blur(50px) brightness(30%);
 }
 
 @keyframes turn{

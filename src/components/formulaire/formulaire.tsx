@@ -2,7 +2,7 @@ import "./formulaire.scss"
 
 import {type FC, useState } from "react"
 
-const english_msg = "While we are designing, refining and curating our products for you just leave your address email here and you'll be the first to have access to our solutions. "
+const english_msg = "While we are designing, refining and curating our products, just leave us your address email and you'll be among the first to laverage our incredible set of tools. "
 const english_title = ""
 
 const french_title = "Tu attends Unrationnal ?"
@@ -27,7 +27,7 @@ export const Formulaire:FC = () => {
                 {english_msg}
             </p>
 
-            <div>
+            <div className="input-box">
                 <input type="text" placeholder="youremail@email.com" name="email" value={email} onChange={(evt)=>changeValue(evt)}/>
                 <button onClick={()=>console.log("the email is : ", email)}>Submit</button>
             </div>

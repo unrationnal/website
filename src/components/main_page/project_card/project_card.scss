@@ -21,6 +21,12 @@
         color: #fff;
         margin-left: 1rem;
     }
+
+    &:hover{
+        #blob {
+            width: 100px;
+        }
+    }
 }
 
 #grid-card {
@@ -118,6 +124,10 @@
         &:hover {
             &::before{
                 opacity: 0;
+            }
+
+            #blob {
+                width: 100px;
             }
         }
 
