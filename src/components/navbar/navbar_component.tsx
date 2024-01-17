@@ -44,7 +44,7 @@ const TrialButton = () => {
     return (
         <>
         <button>
-            <h2>Get Early Access</h2>
+            <h2>Join Waitlist</h2>
             <i className="fa-solid fa-chevron-right"></i>
         </button>
         </>

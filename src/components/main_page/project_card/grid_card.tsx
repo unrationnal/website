@@ -17,11 +17,17 @@ const testSrc_4 = "https://images.unsplash.com/photo-1704895390342-b52a2f45786c?
 const testSrc_5 = "https://images.unsplash.com/photo-1704937197276-0094595fef4c?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1OXx8fGVufDB8fHx8fA%3D%3D"
 
 export const GridCard:FC = () => {
-    const delay = 100
+    const delay = 0.1
     return (
-        <section id="catalogue">
+        <motion.section 
+         id="catalogue">
 
-            <h2>Our Catalogue</h2>
+            <motion.h2 initial={{y : 50, opacity : 0}}
+            whileInView={{y : 0, opacity : 1}}
+            transition={{duration : 1, ease : "easeOut", delay : 0.2}}
+            viewport={{once : true}}
+            >
+                Our Catalogue</motion.h2>
 
             <section id="grid-card">
                 <Card image={testSrc} name="Social Media Critic" delay={delay} />
@@ -33,7 +39,7 @@ export const GridCard:FC = () => {
                 <Card name="Grocery" description="Manage your grocery list, your receipts and your shopping habit with the Grocery Expert" image={testSrc_2} delay={delay*7}/>
                 <Card description='"The best way to predict the future is to create it"' italic={true} delay={delay*8} />
             </section>
-        </section>
+        </motion.section>
     )
 }
 
@@ -49,8 +55,14 @@ interface CardProps {
 
 const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fontSize=null, italic=false}) => {
 
+    const x = Math.random() * 100
+    const y = Math.random() * 100
+
+    
+
     const inStyle : React.CSSProperties = image ? {
         backgroundImage : `linear-gradient(120deg, #090909 20%, transparent), linear-gradient(-10deg, #090909 20%, transparent), url("${image}")`,
+        // backgroundImage : `linear-gradient(120deg, #090909 20%, transparent), linear-gradient(-10deg, #090909 20%, transparent), ${blob})`,
     } : {}
 
     const h2Style : React.CSSProperties = fontSize ? {
@@ -58,26 +70,35 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
     } : {}
     
     return (
-        <div style={inStyle}>
-            {name && 
-            <h2 style={{
-                animation : `intro-text 1000ms var(--slow-fast) ${delay}ms both`
-            }}>{name}</h2>
+        <motion.div className="grain-bg"
+        style={inStyle}
+        // initial={{opacity : 0, y : 100}} 
+        // transition={{duration : 1, ease : "easeOut", delay : delay}}
+        // whileInView={{opacity : 1, y : 0}}
+        // viewport={{once : true}}
+        >   
+            <div className="card-details">
+
+                {name && 
+                <h2 style={{
+                    animation : `intro-text 1000ms var(--slow-fast) ${delay}ms both`
+                }}>{name}</h2>
             }
 
-            {description && 
-            <h3 style={h2Style}>{
-                italic ? <i>{description}</i> : description
-            }</h3>
+                {description && 
+                <h3 style={h2Style}>{
+                    italic ? <i>{description}</i> : description
+                }</h3>
             }
 
-            {(image || name) &&
-            <button>
-                <h4>Explore</h4>
-                <i className="fa-solid fa-arrow-right"></i>
-            </button>
-            }
-        </div>
+                {(image || name) &&
+                <button>
+                    <h4>Explore</h4>
+                    <i className="fa-solid fa-arrow-right"></i>
+                </button>
+                }
+            </div>
+        </motion.div>
     )
 }
 
