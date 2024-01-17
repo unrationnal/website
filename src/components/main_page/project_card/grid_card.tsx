@@ -2,6 +2,8 @@
 
 import { type FC } from "react"
 
+import { useScroll, motion } from "framer-motion"
+
 const testSrc = "https://images.unsplash.com/photo-1682685795579-37e731bfefab?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8"
 
 const testSrc_1 = "https://images.unsplash.com/photo-1705002455875-29da8631d626?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8"

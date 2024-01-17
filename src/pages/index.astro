@@ -9,6 +9,7 @@ import ProjectWrapper from '../components/main_page/project_card/projectWrapper.
 import FooterSection from '../components/main_page/footer/footer_section';
 
 import Decoration from '../components/decoration/decoration.astro';
+import PlaceHolder from "../components/placeHolder"
 
 import Blob from '../components/blob/blob.astro';
 
@@ -16,14 +17,15 @@ import Blob from '../components/blob/blob.astro';
 
 <Layout title="Welcome to Astro.">
   <Blob />
-
+  <Home />
+  
   <App>
-    <Decoration />
+    <!-- <Decoration /> -->
+    <PlaceHolder size='100vh' min='100vh' max='100vh'/>
     <Navbar />
-    <Home />
     <ProjectWrapper /> 
-
     <FooterSection />
+    
   </App>
 
 </Layout>

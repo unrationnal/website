@@ -2,7 +2,6 @@
 
 import { useState, type FC } from "react";
 
-
 export const BlobCursor: FC = () => {
     // need to track the mouse cursor
     const [x, setX] = useState(0)
