@@ -5,21 +5,27 @@ import { Logo } from "./logo"
 
 import "./navbar.scss"
 
-export const NavBar:FC = () => {
+interface Props {
+    hide? : boolean
+}
+
+export const NavBar:FC<Props> = ({ hide=false }) => {
     
     return (
         <nav>
             <section>
+                <a href="/">
                 <Logo />
+                </a>
 
-                <ul>
+                {/* <ul>
                     <Option title="Home" link="formulaire"/>
                     <Option title="Blog" link="formulaire"/>
                     <Option title="Catalague" link="formulaire"/>
                     <Option title="Pricing" link="formulaire"/>
-                </ul>
+                </ul> */}
 
-                <TrialButton />
+                <TrialButton hide={hide} />
             </section>
         </nav>
     )
@@ -40,11 +46,11 @@ const Option:FC<OptionProps> = ({title, link}) => {
     )
 }
 
-const TrialButton = () => {
+const TrialButton:FC<Props> = ({ hide }) => {
     return (
         <>
-        <button>
-            <h2>Join Waitlist</h2>
+        <button style={hide ? {opacity : 0} : {}}>
+            <a href="/formulaire"><h2>Join Waitlist</h2></a>
             <i className="fa-solid fa-chevron-right"></i>
         </button>
         </>

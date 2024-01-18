@@ -1,5 +1,7 @@
 ---
 import { NavBar } from "../navbar/navbar_component"
+
+const hide = Astro.props.hide ? Astro.props.hide : false
 ---
 
-<NavBar client:load />
+<NavBar hide={hide} client:load />

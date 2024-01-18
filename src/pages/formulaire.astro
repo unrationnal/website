@@ -4,9 +4,11 @@ import App from "../layouts/App.astro";
 
 import Blob from "../components/blob/blob.astro";
 import Form from "../components/formulaire/form.astro";
+import Navbar from "../components/navbar/navbar.astro";
 ---
 
 <Layout title="Unrational">
+    <Navbar hide={true} />
     <Blob />
 
     <App>

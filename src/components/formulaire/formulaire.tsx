@@ -8,6 +8,9 @@ const english_title = ""
 const french_title = "Tu attends Unrationnal ?"
 const french_msg = `Nous sommes en plein dans le processus de développement de nos nouvelles applications qui vont révolutionner ton quotidien..🤔<br/><br/> <br/>
 Laisse-nous simplement ton adresse e-mail ci-dessous, et tu seras parmi les premiers à recevoir un accès anticipé dès que tout sera prêt. 🚀✨`
+
+const repeatMSG ="THANKSFORVISITING THANSKFORVISITING"
+
 export const Formulaire:FC = () => {
     const [email, setEmail] = useState<string>("")
 
@@ -24,7 +27,7 @@ export const Formulaire:FC = () => {
         <section>
             <h1>{english_title}</h1>
             <p>
-                {english_msg}
+            While we are <span>designing</span>, <span>refining</span> and <span>curating</span> our products, just leave us your address email and you'll be among the first to laverage our incredible set of tools.
             </p>
 
             <div className="input-box">
@@ -35,7 +38,12 @@ export const Formulaire:FC = () => {
         </section>   
 
         <div className="animation">
-
+                {Array(15).fill(0).map((x, i) => {
+                    const marginLeft = - (Math.random() * 80)
+                    return <h1 key={i} style={{
+                        marginLeft : marginLeft + "%"
+                    }}>{repeatMSG}</h1>
+                })}
         </div>         
         </section>
         </>
