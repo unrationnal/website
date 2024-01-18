@@ -1,5 +1,6 @@
 @import "../../../layouts/colors";
 @import "../../../layouts/buttons";
+@import "../../../layouts//font";
 
 
 :root{
@@ -28,9 +29,10 @@
     padding-block: 5vmax;
     margin-inline: auto;
 
+    background: transparent;
     // background-color: $black;
-    background-image: linear-gradient(to bottom,  transparent 25%, $black 25%);
-    border-radius: 20px;
+    // background-image: linear-gradient(to bottom,  transparent 25%, $black 25%);
+    // border-radius: 20px;
 
     h2 {
         font-family: 'Poppins', sans-serif;
@@ -226,3 +228,22 @@
     }
 }
 
+#intro-message {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10vmax;
+    h2 {
+        font-family: $font-family-5;
+        font-size: 1em;
+        color : #fff;
+        width: 80%;
+        overflow: hidden;
+        background-image: linear-gradient(to right, $bright-green, $bright-blue);
+        background-clip: text;
+    }
+
+    span{
+        color: transparent;
+    }
+}

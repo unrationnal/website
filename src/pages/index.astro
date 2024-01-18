@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import App from "../layouts/App.astro"
 import Navbar from "../components/navbar/navbar.astro"
 
-import { Home } from "../components/main_page/header/home"
+import Header from '../components/main_page/header/header.astro';
+
 import ProjectWrapper from '../components/main_page/project_card/projectWrapper.astro';
 
 import FooterSection from '../components/main_page/footer/footer_section';
@@ -17,11 +18,11 @@ import Blob from '../components/blob/blob.astro';
 
 <Layout title="Welcome to Astro.">
   <Blob />
-  <Home />
   
   <App>
+    <Header /> 
     <!-- <Decoration /> -->
-    <PlaceHolder size='100vh' min='100vh' max='100vh'/>
+    <!-- <PlaceHolder size='100vh' min='100vh' max='100vh'/> -->
     <Navbar />
     <ProjectWrapper /> 
     <FooterSection />

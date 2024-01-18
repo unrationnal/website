@@ -2,25 +2,30 @@
 
 import "./home.scss"
 
-import {type FC } from "react"
+import {type FC, type ReactNode } from "react"
 
-const DescriptiveMessage = "Explore our catalogue of elegant and innovative solutions to your everyday problems through the use of AI and the latest tech"
 
-export const Home:FC = () => {
+interface Props {
+    children : ReactNode
+}
+
+export const Home:FC<Props> = ({ children }) => {
 
 
     return (
         <>
 
-        <div className="msg_home">
-            <div>
-                <h1>Finding rationnal solutions for this world's problems</h1>
-                <p>{DescriptiveMessage}</p>
+        <header>
+            <div id="msg-home">
+                <div>
+                    <h1>Finding <span>innovative</span> <span>elegant</span> and <span>rationnal</span> solutions your problems</h1>
+                </div>
+
+                {children}
             </div>
                 
-        </div>
+        </header>
         
         </>
     )
 }
-

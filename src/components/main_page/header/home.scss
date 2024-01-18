@@ -1,46 +1,55 @@
 // mon fichier css
 @import "../../../layouts/colors";
+@import "../../../layouts//font";
 
-.msg_home{
-    position: absolute;
-    inset: 0;
-    // width: 100%;
-    // height: 100vh;
+header{
+    position: relative;
+    // inset: 0;
+    // z-index: 4;
+    width: 100%;
+    height: 100vh;
     display: grid;
     place-items: center;
-    z-index: 4;
-    // background:
-    // radial-gradient(circle at 80%  50%,#000, map-get($map:$blue-planet, $key:primary), map-get($map:$blue-planet, $key:secondary),map-get($map:$blue-planet, $key:primary), #000);
-
-    // background: transparent;
-
-    background-color:transparent;
+    
+    background-color: transparent;
     background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.772), rgba(0, 0, 0, 0.628)),
+    // linear-gradient(to right, rgba(0, 0, 0, 0.772), rgba(0, 0, 0, 0.628)),
     radial-gradient(at 47% 26%, hsla(240,61%,53%,0.47) 0px, transparent 50%),
     radial-gradient(at 94% 7%, rgba(91, 61, 209, 0.915) 0px, transparent 50%),
     radial-gradient(at 82% 37%, rgba(148, 44, 0, 0.888) 0px, transparent 50%),
     radial-gradient(at 41% 1%, rgba(64, 8, 119, 0.897) 0px, transparent 50%),
-    url("../../../../assets/granular_bg.png")
     ;
 
-    div {
-        // background: linear-gradient(90deg, map-get($map: $green-nebula, $key:text), map-get($map: $purple-haze, $key:background));
-        background: linear-gradient(90deg, $bright-blue, $bright-purple);
+    #msg-home {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+    }
+    
+    
+    h1{
+        background: linear-gradient(90deg, $neon-orange, $bright-blue);
         background-clip: text;
         width: 50%;
         margin-inline: auto;
-    }
-
-    h1{
-        font-family: "Poppins", sans-serif;
+        
+        font-family: $font-family-5;
         font-weight: 800;
         text-align: center;
-        font-size: 1em ;
-        color: transparent;
+        font-size: 2em ;
+        color: #fff;
+        
+        span{
+            color: transparent;
+        }
     }
     
     p{
+        width: 50%;
+        margin-inline: auto;
+
         font-family: "Poppins", sans-serif;
         font-weight: 100;
         color: #d3d3d3;
@@ -48,20 +57,28 @@
         font-size: 0.5em;
     }
 
-    span{
-        animation: color-swap 2s linear 0s infinite alternate-reverse;
-    }
-}
 
-@keyframes color-swap {
-    from {
-        color: map-get($map: $blue-planet, $key:accent );
-    }
-    50%{
-        color: map-get($map: $blue-planet, $key:primary )
-    }
-    to{
-        color: $green;
+    #explore-card {
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: clamp(200px, 80vw, 600px);
+        height: clamp(400px, 600px, 800px);
+        aspect-ratio: 1;
+        border-radius: 1em;
+
+        background-color: #0d1117;
+        filter: brightness(50%);
+
+        // background-image: radial-gradient(circle at 0% 0%, $iris 0%, transparent 50%);
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     
 }
+
+

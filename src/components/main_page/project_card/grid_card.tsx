@@ -1,6 +1,6 @@
 // grid interlocking cards
 
-import { type FC } from "react"
+import { useEffect, type FC } from "react"
 
 import { useScroll, motion } from "framer-motion"
 
@@ -18,8 +18,12 @@ const testSrc_5 = "https://images.unsplash.com/photo-1704937197276-0094595fef4c?
 
 export const GridCard:FC = () => {
     const delay = 0.1
+
+    const { scrollYProgress } = useScroll()
+
     return (
         <motion.section 
+        style={{scaleX : scrollYProgress }}
          id="catalogue">
 
             <motion.h2 initial={{y : 50, opacity : 0}}
@@ -68,14 +72,20 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
     const h2Style : React.CSSProperties = fontSize ? {
         fontSize : fontSize
     } : {}
+
+    const variants = {
+        visible : {opacity : 1, y : 0},
+        hidden : {opacity : 0, y : 100}
+    }
     
     return (
         <motion.div className="grain-bg"
         style={inStyle}
-        // initial={{opacity : 0, y : 100}} 
-        // transition={{duration : 1, ease : "easeOut", delay : delay}}
-        // whileInView={{opacity : 1, y : 0}}
-        // viewport={{once : true}}
+        variants={variants}
+        initial="hidden"
+        transition={{duration : 1, ease : "linear", delay : 0.5}}
+        whileInView="visible"
+        viewport={{once : true}}
         >   
             <div className="card-details">
 
