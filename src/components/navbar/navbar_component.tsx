@@ -12,12 +12,12 @@ export const NavBar:FC = () => {
             <section>
                 <Logo />
 
-                {/* <ul>
-                    <Option title="Home" link=""/>
-                    <Option title="Blog" link=""/>
-                    <Option title="Catalague" link=""/>
-                    <Option title="Pricing" link=""/>
-                </ul> */}
+                <ul>
+                    <Option title="Home" link="formulaire"/>
+                    <Option title="Blog" link="formulaire"/>
+                    <Option title="Catalague" link="formulaire"/>
+                    <Option title="Pricing" link="formulaire"/>
+                </ul>
 
                 <TrialButton />
             </section>
