@@ -99,10 +99,13 @@
                 position: relative;
                 background-color: #090909;
                 margin-left: 3em;
-                font-size: 0.5em;
+                font-size: 0.6em;
                 font-family: 'Inter', sans-serif;
                 transition: background-position 2000ms;
                 @include classic-button();
+                padding: 0.5em 0.9em;
+                border-radius: 0.4em;
+                max-width: 160px;
                 
                 display: flex;
                 justify-content: center;
@@ -251,6 +254,13 @@
         font-size: 1.5em;
     }
     
+    .card-details{
+        button {
+            width: 90px;
+            padding-inline: 0;
+        }
+    }
+
     #grid-card {
         .grain-bg {
 
