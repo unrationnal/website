@@ -43,8 +43,9 @@
 }
 
 @media screen and (max-width: 767px) {
-    #blob, #glass {
-        display: none;
+    #blob {
+        width: 300px;
+        filter: brightness(70%);
     }
  }
 
