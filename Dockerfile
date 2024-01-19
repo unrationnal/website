@@ -1,38 +1,20 @@
-# syntax=docker/dockerfile:1
-
-# Comments are provided throughout this file to help you get started.
-# If you need more help, visit the Dockerfile reference guide at
-# https://docs.docker.com/go/dockerfile-reference/
-
-ARG NODE_VERSION=19.6.0
-
-FROM node:${NODE_VERSION}-alpine
-
-# Use production node environment by default.
-ENV NODE_ENV production
+FROM node:lts AS build
 
 
 WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
 
 RUN npm install
 
-
-# Copy the rest of the source files into the image.
 COPY . .
 
-# create build for production
 RUN npm run build
 
-# copy build files
-FROM nginx:stable-alpine
+FROM nginx:alpine AS runtime
 
-COPY --from=dist /app/dist /usr/share/nginx/html
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Expose the port that the application listens on.
-EXPOSE 80
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Run the application.
-# CMD ["npm","run","dev","--","--host"]
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 8080
