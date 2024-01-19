@@ -27,11 +27,11 @@ export const Formulaire:FC = () => {
         <section>
             <h1>{english_title}</h1>
             <p>
-            While we are <span>designing</span>, <span>refining</span> and <span>curating</span> our products, just leave us your address email and you'll be among the first to laverage our incredible set of tools.
+            We are working on extending the capabilities of some of our GPTS so while we are <span>designing</span>, <span>refining</span> and <span>curating</span>, just leave us your address email and you'll be among the first to laverage our incredible set of tools.
             </p>
 
             <div className="input-box">
-                <input type="text" placeholder="youremail@email.com" name="email" value={email} onChange={(evt)=>changeValue(evt)}/>
+                <input type="email" placeholder="youremail@email.com" name="email" value={email} onChange={(evt)=>changeValue(evt)}/>
                 <button onClick={()=>console.log("the email is : ", email)}>Submit</button>
             </div>
             

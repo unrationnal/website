@@ -33,8 +33,7 @@
     section{
         display: flex;
         flex-direction: column;
-        padding-top: 15vh;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding-top: 10vh;
         align-items: center;
 
         h1{
@@ -101,5 +100,40 @@
         }
     
     }
+}
+
+
+@media screen and (max-width: 767px) { 
+    #formulaire {
+        display: grid;
+        grid-template-columns: 100%;
+        .animation{
+            border: solid red;
+            display: none;
+        }
+
+        section {
+            
+            p {
+                font-weight: 500;
+                line-height: 2em;
+                font-size: 1.4em;
+                margin-inline: center;
+                width: 90%;
+            }
+
+            input {
+                font-size: 1em;
+            }
+            button {
+                font-size: 1em;
+            }
+
+            .input-box{
+                gap: 0.2em;
+            }
+        }
+    }
+
 }
 

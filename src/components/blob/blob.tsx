@@ -3,6 +3,11 @@
 import { useState, type FC } from "react";
 
 export const BlobCursor: FC = () => {
+    // checking if mobile then exit
+    if (window.innerWidth < 800 && window.innerHeight > 600){
+        return
+    }
+
     // need to track the mouse cursor
     const [x, setX] = useState(0)
     const [y, setY] = useState(0)

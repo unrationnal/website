@@ -18,13 +18,8 @@ const testSrc_5 = "https://images.unsplash.com/photo-1704937197276-0094595fef4c?
 
 export const GridCard:FC = () => {
     const delay = 0.1
-
-    const { scrollYProgress } = useScroll()
-
     return (
-        <motion.section 
-        style={{scaleX : scrollYProgress }}
-         id="catalogue">
+        <motion.section id="catalogue">
 
             <motion.h2 initial={{y : 50, opacity : 0}}
             whileInView={{y : 0, opacity : 1}}
