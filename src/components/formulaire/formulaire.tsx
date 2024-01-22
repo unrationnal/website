@@ -11,6 +11,7 @@ Laisse-nous simplement ton adresse e-mail ci-dessous, et tu seras parmi les prem
 
 const repeatMSG ="THANKSFORVISITING THANSKFORVISITING"
 
+
 export const Formulaire:FC = () => {
     const [email, setEmail] = useState<string>("")
 
@@ -19,16 +20,17 @@ export const Formulaire:FC = () => {
         setEmail(newValue)
     }
 
-    
+    const userLangage = "en"
+
+    const Message = traduction[userLangage]
 
     return (
         <>
         <section id="formulaire">
         <section>
             <h1>{english_title}</h1>
-            <p>
-            We are working on extending the capabilities of some of our GPTS so while we are <span>designing</span>, <span>refining</span> and <span>curating</span>, just leave us your address email and you'll be among the first to laverage our incredible set of tools.
-            </p>
+
+            <Message/>
 
             <div className="input-box">
                 <input type="email" placeholder="youremail@email.com" name="email" value={email} onChange={(evt)=>changeValue(evt)}/>
@@ -49,3 +51,21 @@ export const Formulaire:FC = () => {
         </>
     )
 }
+
+const English_msg = () => {
+    return(
+        <p>
+            While we are <span>designing</span>, <span>refining</span> and <span>curating</span> our products, just leave us your address email and you'll be among the first to laverage our incredible set of tools.
+        </p>
+    )
+}
+
+const French_msg = () => {
+    return(
+        <p>
+            Pendant que nous <span>concevons</span>, <span>affinons</span> et <span>conservons</span> nos produits, laissez-nous votre adresse e-mail et vous serez parmi les premiers à profiter de notre incroyable ensemble d'outils.
+        </p>
+    )
+}
+
+const traduction = {"en": English_msg, "fr" : French_msg }
