@@ -3,6 +3,9 @@
 import { useState, type FC } from "react";
 
 export const BlobCursor: FC = () => {
+    // checking if mobile then exit
+    
+
     // need to track the mouse cursor
     const [x, setX] = useState(0)
     const [y, setY] = useState(0)
@@ -11,11 +14,15 @@ export const BlobCursor: FC = () => {
     const centerY = window.innerHeight / 2
 
     // update mouse position
-    window.onmousemove = (e) => {
-        const {clientX, clientY} = e
-        setX(clientX - centerX)
-        setY(clientY - centerY)
-    
+    if (window.innerWidth < 800 && window.innerHeight > 600){
+        let a = 2   
+    }else {
+        window.onmousemove = (e) => {
+            const {clientX, clientY} = e
+            setX(clientX - centerX)
+            setY(clientY - centerY)
+            
+        }
     }
 
     return (

@@ -3,7 +3,7 @@
 @import "../../../layouts/colors";
 
 footer {
-    padding-top: clamp(200px, 50vh, 600px);
+    padding-top: clamp(50px, 50vh, 10p0px);
     width: 100%;
     height: clamp(300px, 50vh, 500px);
     display: flex;
@@ -33,6 +33,7 @@ footer {
         transition: background-position 200ms linear;
         background-clip: text;
         color: transparent;
+        cursor: pointer;
 
         &:hover{
             background-position: 100% 100%;

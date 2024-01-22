@@ -33,19 +33,8 @@
     
     background-color: transparent;
     
+    -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
-
-    // background-color: #030303;
-    // background-image:  linear-gradient(#611098 1px, transparent 1px), linear-gradient(to right, #611098 1px, #030303 1px);
-    // background-size: 200px 200px;
-    
-    // div {
-    //     width: 100%;
-    //     height: 100%;
-    //     position: relative;
-    //     background-image:  linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, $black 1px);
-    //     background-size: 100px 100px;
-    // }
 
 }
 
@@ -53,3 +42,11 @@
     from {scale: 1 1.5 ;}
     to {scale: 1.5 1 ;}
 }
+
+@media screen and (max-width: 767px) {
+    #blob {
+        width: 300px;
+        filter: brightness(70%);
+    }
+ }
+

@@ -53,9 +53,6 @@
 @mixin classic-button {
     border: none;
     outline: none;
-    border-radius: 7px;
-    padding: 0.4em 0.1em;
-    width: 140px;
     cursor: pointer;
     transition: color 500ms linear, background-color 500ms linear;
 }

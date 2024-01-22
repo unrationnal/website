@@ -18,7 +18,7 @@ export const Home:FC<Props> = ({ children }) => {
         <header>
             <div id="msg-home">
                 <div>
-                    <h1>Finding <span>innovative</span> <span>elegant</span> and <span>rationnal</span> solutions your problems</h1>
+                    <h1>Finding <span>innovative</span> <span>elegant</span> and <span>rationnal</span> solutions to your problems</h1>
                 </div>
 
                 {children}

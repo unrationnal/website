@@ -33,7 +33,7 @@ export const Formulaire:FC = () => {
             <Message/>
 
             <div className="input-box">
-                <input type="text" placeholder="youremail@email.com" name="email" value={email} onChange={(evt)=>changeValue(evt)}/>
+                <input type="email" placeholder="youremail@email.com" name="email" value={email} onChange={(evt)=>changeValue(evt)}/>
                 <button onClick={()=>console.log("the email is : ", email)}>Submit</button>
             </div>
             

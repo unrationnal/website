@@ -71,6 +71,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: left;
+            border-color: rgba(230, 230, 250, 0.4);
         
 
 
@@ -98,10 +99,13 @@
                 position: relative;
                 background-color: #090909;
                 margin-left: 3em;
-                font-size: 0.5em;
+                font-size: 0.6em;
                 font-family: 'Inter', sans-serif;
                 transition: background-position 2000ms;
                 @include classic-button();
+                padding: 0.5em 0.9em;
+                border-radius: 0.4em;
+                max-width: 160px;
                 
                 display: flex;
                 justify-content: center;
@@ -158,49 +162,41 @@
 
         &:nth-child(1){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 1 / span 9;
             grid-row: 1 / span 3;
         }
         &:nth-child(2){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 10 / span 3;
             grid-row: 1 / span 3;
         }
         &:nth-child(3){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 4 / span 9;
             grid-row: 4 / span 4;
         }
         &:nth-child(4){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 1 / span 3;
             grid-row: 4 / span 2;
         }
         &:nth-child(5){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 1 / span 3;
             grid-row: 6 / span 3;
         }
         &:nth-child(6){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 4 / span 4;
             grid-row: 8 / span 4;
         }
         &:nth-child(7){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 8 / span 5;
             grid-row: 8 / span 4;
         }
         &:nth-child(8){
             @include getBlob();
-            border-color: rgba(230, 230, 250, 0.4);
             grid-column: 1 / span 3;
             grid-row: 9 / span 3;
         }
@@ -247,3 +243,64 @@
         color: transparent;
     }
 }
+
+
+// media querrys
+
+@media screen and (max-width: 767px) {
+
+    #catalogue {
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .card-details{
+        button {
+            width: 90px;
+            padding-inline: 0;
+        }
+    }
+
+    #grid-card {
+        .grain-bg {
+
+            &:nth-child(1){
+                grid-column: 1 / span 7;
+                grid-row: 1 / span 3;
+            }
+            &:nth-child(2){
+                grid-column: 8 / span 5;
+                grid-row: 1 / span 3;
+            }
+            &:nth-child(3){
+                grid-column: 6 / span 7;
+                grid-row: 4 / span 3;
+            }
+            &:nth-child(4){
+                grid-column: 1 / span 5;
+                grid-row: 6 / span 2;
+            }
+            &:nth-child(5){
+                grid-column: 1 / span 5;
+                grid-row: 4 / span 2;
+            }
+            &:nth-child(6){
+                grid-column: 1 / span 5;
+                grid-row: 8 / span 4;
+            }
+            &:nth-child(7){
+                grid-column: 6 / span 7;
+                grid-row: 7 / span 3;
+            }
+            &:nth-child(8){
+                grid-column: 6 / span 7;
+                grid-row: 10 / span 2;
+            }
+            
+        }
+
+    }    
+
+    }
+
+  }

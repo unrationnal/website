@@ -19,34 +19,45 @@ const testSrc_5 = "https://images.unsplash.com/photo-1704937197276-0094595fef4c?
 import Logo from "../../../../assets/vortex_logo.png"
 
 const ExploreCard = () => {
-    const [x, setX] = useState(0)
-    const [y, setY] = useState(0)
-    const range = 20
-
-    const Services = [testSrc, testSrc_1, testSrc_2, testSrc_3, testSrc_4, testSrc_5]
-    for (let index = 0; index < Services.length; index++) {
-        const url = Services[index];
-        Services[index] = `url("${url}")`
+    // mobile then avoid all the javascript function
+    let rotateStyle : React.CSSProperties
+    if (window.innerWidth < 800 && window.innerHeight > 600){
+        const x = 0
+        const y = 0
+        rotateStyle = {}
     }
 
+    else {
 
-    const centerX = window.innerWidth / 2
-    const centerY = window.innerHeight / 2
-
-    document.onmousemove = (e : MouseEvent) => {
-        const {clientX, clientY} = e
-        const newX = ((clientX - centerX) / centerX) * range
-        const newY = ((centerY - clientY) / centerY) * range
-        setX(newY)
-        setY(newX)       
-    }
-    
-    const rotateStyle : React.CSSProperties = {
+        const [x, setX] = useState(0)
+        const [y, setY] = useState(0)
+        const range = 20
+        
+        const Services = [testSrc, testSrc_1, testSrc_2, testSrc_3, testSrc_4, testSrc_5]
+        for (let index = 0; index < Services.length; index++) {
+            const url = Services[index];
+            Services[index] = `url("${url}")`
+        }
+        
+        
+        const centerX = window.innerWidth / 2
+        const centerY = window.innerHeight / 2
+        
+        document.onmousemove = (e : MouseEvent) => {
+            const {clientX, clientY} = e
+            const newX = ((clientX - centerX) / centerX) * range
+            const newY = ((centerY - clientY) / centerY) * range
+            setX(newY)
+            setY(newX)       
+        }
+        
+        rotateStyle  = {
         transform : `
         perspective(100vw)
         rotateX(${x}deg)
         rotateY(${y}deg)`,
     }
+}
     
     return (
         <motion.div id="explore-card"
