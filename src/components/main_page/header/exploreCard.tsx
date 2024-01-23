@@ -16,7 +16,7 @@ const testSrc_4 = "https://images.unsplash.com/photo-1704895390342-b52a2f45786c?
 
 const testSrc_5 = "https://images.unsplash.com/photo-1704937197276-0094595fef4c?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1OXx8fGVufDB8fHx8fA%3D%3D"
 
-import Logo from "../../../../assets/vortex_logo.png"
+import Logo from "../../../../assets/vortex_logo.webp"
 
 const ExploreCard = () => {
     // mobile then avoid all the javascript function

@@ -54,9 +54,7 @@ interface CardProps {
 
 const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fontSize=null, italic=false}) => {
 
-    const x = Math.random() * 100
-    const y = Math.random() * 100
-
+    image = null
 
     const inStyle : React.CSSProperties = image ? {
         backgroundImage : `linear-gradient(120deg, #090909 20%, transparent), linear-gradient(-10deg, #090909 20%, transparent), url("${image}")`,
@@ -68,25 +66,31 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
     } : {}
 
     const variants = {
-        visible : {opacity : 1, y : 0},
-        hidden : {opacity : 0, y : 100}
+        visible : {opacity : 1, transform : "translateY(0px)" },
+        hidden : { opacity : 0, transform : "translateY(100px)"}
     }
+
+    const slow_fast = [, .93, .41, .86]
     
     return (
         <motion.div className="grain-bg"
         style={inStyle}
         variants={variants}
+        animate={{}}
         initial="hidden"
-        transition={{duration : 1, ease : "linear", delay : 0.5}}
+        transition={{duration : 0.5, ease : slow_fast, delay : Math.pow(delay, 2)}}
+        // transition={{
+        //     y: { type: "spring", stiffness: 80 },
+        //          duration: 2,
+        //         delay: 0.2,
+        //   }}
         whileInView="visible"
         viewport={{once : true}}
         >   
             <div className="card-details">
 
                 {name && 
-                <h2 style={{
-                    animation : `intro-text 1000ms var(--slow-fast) ${delay}ms both`
-                }}>{name}</h2>
+                <h2>{name}</h2>
             }
 
                 {description && 
