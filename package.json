@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "unrationnal_website",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -23,6 +23,9 @@
     "react-dom": "^18.2.0",
     "sass": "^1.69.7",
     "typescript": "^5.3.3"
-  }
-  "homepage": "https://unrationnal.github.io/website"
+
+  },
+
+  "homepage": "https://unrationnal.world"
+
 }
