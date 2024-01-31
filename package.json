@@ -7,7 +7,10 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist" ,
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
@@ -21,4 +24,5 @@
     "sass": "^1.69.7",
     "typescript": "^5.3.3"
   }
+  "homepage": "https://unrationnal.github.io/website"
 }
