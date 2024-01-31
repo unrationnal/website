@@ -4,5 +4,8 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://unrationnal.github.io',
+  base: '/website',
+
   integrations: [react()]
 });
