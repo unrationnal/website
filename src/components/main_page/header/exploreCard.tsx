@@ -22,8 +22,6 @@ const ExploreCard = () => {
     // mobile then avoid all the javascript function
     let rotateStyle : React.CSSProperties
     if (window.innerWidth < 800 && window.innerHeight > 600){
-        const x = 0
-        const y = 0
         rotateStyle = {}
     }
 
