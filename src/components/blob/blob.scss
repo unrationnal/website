@@ -12,9 +12,11 @@
     width : 400px ;
     aspect-ratio : 1 ;
     border-radius: 50%;
+
+    filter: blur(30px);
     
     // background-color: #fff;
-    background-color: transparent;
+    // background-color: transparent;
     // border: solid $bright-blue;
     
     // backdrop-filter: sepia(100%);
@@ -27,14 +29,15 @@
 }
 
 #glass {
-    position: absolute;
+    position: fixed;
     z-index: 3;
     inset: 0;
     
     background-color: transparent;
     
-    -webkit-backdrop-filter: blur(100px);
-    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(150px);
+    backdrop-filter: blur(150px);
+    // backdrop-filter: grayscale(100%);
 
 }
 

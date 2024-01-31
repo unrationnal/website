@@ -11,7 +11,7 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine AS runtime
+FROM nginx:1-alpine-slim
 
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
