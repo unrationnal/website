@@ -2,6 +2,20 @@
 
 import { useState, type FC } from "react";
 
+const isMobile = () : boolean => {
+    let state = false
+    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    state = regex.test(navigator.userAgent);
+
+    if (!state){
+        let screenWidth = window.screen.width;
+        let screenHeight = window.screen.height;
+        state = (screenWidth < 768 || screenHeight < 768);
+    }
+
+    return state
+}
+
 export const BlobCursor: FC = () => {
     // checking if mobile then exit
     
@@ -14,14 +28,11 @@ export const BlobCursor: FC = () => {
     const centerY = window.innerHeight / 2
 
     // update mouse position
-    if (window.innerWidth < 800 && window.innerHeight > 600){
-        let a = 2   
-    }else {
+    if (!isMobile()){
         window.onmousemove = (e) => {
             const {clientX, clientY} = e
             setX(clientX - centerX)
             setY(clientY - centerY)
-            
         }
     }
 

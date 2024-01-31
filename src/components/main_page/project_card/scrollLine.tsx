@@ -17,9 +17,9 @@ export const ScrollLine = () => {
     )
 
     // console.log(greenPercent)
-    const inStyle : React.CSSProperties = {
-        backgroundImage : `linear-gradient(to bottom,  green ${greenPercent}%, gray)`
-    }
+    // const inStyle : React.CSSProperties = {
+    //     backgroundImage : `linear-gradient(to bottom,  green ${greenPercent}%, gray)`
+    // }
 
     return (
         <div id="scroll-line" ref={ref}  />

@@ -36,15 +36,15 @@ interface OptionProps {
     link : string,
 }
 
-const Option:FC<OptionProps> = ({title, link}) => {
-    return (
-        <li>
-            <a href={link}>
-                {title}
-            </a>
-        </li>
-    )
-}
+// const Option:FC<OptionProps> = ({title, link}) => {
+//     return (
+//         <li>
+//             <a href={link}>
+//                 {title}
+//             </a>
+//         </li>
+//     )
+// }
 
 const TrialButton:FC<Props> = ({ hide }) => {
     return (

@@ -43,13 +43,10 @@ const Blob:FC<BlobProps> = ({ x, y }) => {
 
     // const width = getRandomNumber(800, 1200)
     const width = getRandomNumber(100, 200)
-    const shadow = `${color} 0px ${width}px ${2 * width}px`
     const inStyle : React.CSSProperties = {
         left : x + "%",
         top : y + "%",
         width : width + "px",
-        // backgroundColor : color,
-        // boxShadow : shadow,
     }
     return (
         <div style={inStyle}></div>
