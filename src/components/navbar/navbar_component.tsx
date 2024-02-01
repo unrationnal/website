@@ -31,10 +31,10 @@ export const NavBar:FC<Props> = ({ hide=false }) => {
     )
 }
 
-interface OptionProps {
-    title : string,
-    link : string,
-}
+// interface OptionProps {
+//     title : string,
+//     link : string,
+// }
 
 // const Option:FC<OptionProps> = ({title, link}) => {
 //     return (
@@ -51,7 +51,7 @@ const TrialButton:FC<Props> = ({ hide }) => {
         <>
         <button style={hide ? {opacity : 0} : {}}>
             <a href="/formulaire"><h2>Join Waitlist</h2></a>
-            <i className="fa-solid fa-chevron-right"></i>
+            <i className="fa-solid fa-chevron-right" />
         </button>
         </>
     )

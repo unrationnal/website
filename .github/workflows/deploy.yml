@@ -21,6 +21,16 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: Install, build, and upload your site
+        
+        env :
+          PUBLIC_messagingSenderId : ${{ vars.PUBLIC_messagingSenderId }}
+          PUBLIC_apiKey : ${{ vars.PUBLIC_apiKey }} 
+          PUBLIC_authDomain : ${{ vars.PUBLIC_authDomain }} 
+          PUBLIC_projectId : ${{ vars.PUBLIC_projectId }} 
+          PUBLIC_storageBucket : ${{ vars.PUBLIC_storageBucket }} 
+          PUBLIC_appId : ${{ vars.PUBLIC_appId }} 
+          PUBLIC_measurementId : ${{ vars.PUBLIC_measurementId }} 
+        
         uses: withastro/action@v1
         # with:
           # path: . # The root location of your Astro project inside the repository. (optional)

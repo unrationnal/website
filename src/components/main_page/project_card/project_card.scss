@@ -61,7 +61,7 @@
         height: 100%;
         background-color: #090909;
         box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-        transition: filter var(--slow-fast), transform 500ms var(--slow-fast);
+        transition: filter var(--slow-fast) ;
         transform: translateY(100px);
         will-change: transform;
 
@@ -232,7 +232,6 @@
     justify-content: center;
     padding-top: 10vmax;
     will-change: transform;
-    transition: transform 1500ms var(--slow-fast);
 
     h2 {
         font-family: $font-family-5;
