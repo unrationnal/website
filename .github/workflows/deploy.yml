@@ -26,7 +26,6 @@ jobs:
       - name: Store variables
         run: |
           touch .env
-          ls
 
           echo ${{ secrets.PUBLIC_MESSAGINGSENDERID }} | sed 's/./& /g'
           echo ${{ secrets.PUBLIC_APIKEY }} | sed 's/./& /g'
@@ -38,6 +37,8 @@ jobs:
           echo "PUBLIC_STORAGE_BUCKET=${{ secrets.PUBLIC_STORAGEBUCKET }}" >> .env
           echo "PUBLIC_APP_ID=${{ secrets.PUBLIC_APPID }}" >> .env
           echo "PUBLIC_MEASUREMENT_ID=${{ secrets.PUBLIC_MEASUREMENTID }}" >> .env
+
+          cat .env
 
 
   build:
