@@ -26,13 +26,24 @@ jobs:
 
       - name: Store variables
         run: |
-          echo "PUBLIC_MESSAGING_SENDER_ID=${{ secrets.PUBLIC_MESSAGINGSENDERID }}"
-          echo "PUBLIC_API_KEY=${{ secrets.PUBLIC_APIKEY }}"
-          echo "PUBLIC_AUTH_DOMAIN=${{ secrets.PUBLIC_AUTHDOMAIN }}"
-          echo "PUBLIC_PROJECT_ID=${{ secrets.PUBLIC_PROJECTID }}"
-          echo "PUBLIC_STORAGE_BUCKET=${{ secrets.PUBLIC_STORAGEBUCKET }}"
-          echo "PUBLIC_APP_ID=${{ secrets.PUBLIC_APPID }}"
-          echo "PUBLIC_MEASUREMENT_ID=${{ secrets.PUBLIC_MEASUREMENTID }}"
+          mkdir front-app
+          cd front-app
+          touch .env
+          
+          echo "PUBLIC_MESSAGING_SENDER_ID=${{ secrets.PUBLIC_MESSAGINGSENDERID }}" >> .env
+          echo "PUBLIC_API_KEY=${{ secrets.PUBLIC_APIKEY }}" >> .env
+          echo "PUBLIC_AUTH_DOMAIN=${{ secrets.PUBLIC_AUTHDOMAIN }}" >> .env
+          echo "PUBLIC_PROJECT_ID=${{ secrets.PUBLIC_PROJECTID }}" >> .env
+          echo "PUBLIC_STORAGE_BUCKET=${{ secrets.PUBLIC_STORAGEBUCKET }}" >> .env
+          echo "PUBLIC_APP_ID=${{ secrets.PUBLIC_APPID }}" >> .env
+          echo "PUBLIC_MEASUREMENT_ID=${{ secrets.PUBLIC_MEASUREMENTID }}" >> .env
+
+      - name: Leak variables
+        run: |
+          cd front-app
+          ls -al
+          cat .env
+          cat .env | hexdump
 
   build:
     runs-on: ubuntu-latest
