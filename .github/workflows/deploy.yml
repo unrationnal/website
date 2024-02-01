@@ -16,35 +16,6 @@ permissions:
 
 
 
-jobs:
-  trying-to-use-environment-secrets:
-    runs-on: ubuntu-latest
-    environment: github-pages #<---The only difference we need to specify what environment to use for environment secrets
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Store variables
-        run: |
-          mkdir front-app
-          cd front-app
-          touch .env
-          
-          echo "PUBLIC_MESSAGING_SENDER_ID=${{ secrets.PUBLIC_MESSAGINGSENDERID }}" >> .env
-          echo "PUBLIC_API_KEY=${{ secrets.PUBLIC_APIKEY }}" >> .env
-          echo "PUBLIC_AUTH_DOMAIN=${{ secrets.PUBLIC_AUTHDOMAIN }}" >> .env
-          echo "PUBLIC_PROJECT_ID=${{ secrets.PUBLIC_PROJECTID }}" >> .env
-          echo "PUBLIC_STORAGE_BUCKET=${{ secrets.PUBLIC_STORAGEBUCKET }}" >> .env
-          echo "PUBLIC_APP_ID=${{ secrets.PUBLIC_APPID }}" >> .env
-          echo "PUBLIC_MEASUREMENT_ID=${{ secrets.PUBLIC_MEASUREMENTID }}" >> .env
-
-      - name: Leak variables
-        run: |
-          cd front-app
-          ls -al
-          cat .env
-          cat .env | hexdump
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -57,6 +28,16 @@ jobs:
           # path: . # The root location of your Astro project inside the repository. (optional)
           # node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
           # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+
+      env :
+        PUBLIC_MESSAGING_SENDER_ID=: ${{ secrets.PUBLIC_MESSAGINGSENDERID }}
+        PUBLIC_API_KEY=: ${{ secrets.PUBLIC_APIKEY }}
+        PUBLIC_AUTH_DOMAIN=: ${{ secrets.PUBLIC_AUTHDOMAIN }}
+        PUBLIC_PROJECT_ID=: ${{ secrets.PUBLIC_PROJECTID }}
+        PUBLIC_STORAGE_BUCKET=: ${{ secrets.PUBLIC_STORAGEBUCKET }}
+        PUBLIC_APP_ID=: ${{ secrets.PUBLIC_APPID }}
+        PUBLIC_MEASUREMENT_ID=: ${{ secrets.PUBLIC_MEASUREMENTID }}
+
 
   deploy:
     needs: build
