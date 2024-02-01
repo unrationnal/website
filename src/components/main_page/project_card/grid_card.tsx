@@ -79,14 +79,15 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
         window.open(link, "_blank")?.focus()
     }
 
-    
+    const slow_fast = [0, 0.93, 0.41, 0.86]
+
     return (
         <motion.div className="grain-bg"
         style={inStyle}
         variants={variants}
         animate={{}}
         initial="hidden"
-        transition={{duration : 0.5, ease : "linear", delay : Math.pow(delay, 2)}}
+        transition={{duration : 0.5, ease : slow_fast, delay : Math.pow(delay, 2)}}
         whileInView="visible"
         viewport={{once : true}}
         >   
