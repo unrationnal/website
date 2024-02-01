@@ -16,6 +16,27 @@ permissions:
 
 
 jobs:
+  trying-to-use-environment-secrets:
+    runs-on: ubuntu-latest
+    environment: github-pages #<---The only difference we need to specify what environment to use for environment secrets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Store variables
+        run: |
+          echo ${{ secrets.PUBLIC_MESSAGINGSENDERID }}
+          echo ${{ secrets.PUBLIC_APIKEY }}
+
+          echo "PUBLIC_MESSAGING_SENDER_ID=${{ secrets.PUBLIC_MESSAGINGSENDERID }}"
+          echo "PUBLIC_API_KEY=${{ secrets.PUBLIC_APIKEY }}"
+          echo "PUBLIC_AUTH_DOMAIN=${{ secrets.PUBLIC_AUTHDOMAIN }}"
+          echo "PUBLIC_PROJECT_ID=${{ secrets.PUBLIC_PROJECTID }}"
+          echo "PUBLIC_STORAGE_BUCKET=${{ secrets.PUBLIC_STORAGEBUCKET }}"
+          echo "PUBLIC_APP_ID=${{ secrets.PUBLIC_APPID }}"
+          echo "PUBLIC_MEASUREMENT_ID=${{ secrets.PUBLIC_MEASUREMENTID }}"
+
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -28,15 +49,6 @@ jobs:
           # path: . # The root location of your Astro project inside the repository. (optional)
           # node-version: 18 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
           # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-
-        env:
-          PUBLIC_MESSAGING_SENDER_ID: ${{ secrets.PUBLIC_MESSAGINGSENDERID }}
-          PUBLIC_API_KEY: ${{ secrets.PUBLIC_APIKEY }}
-          PUBLIC_AUTH_DOMAIN: ${{ secrets.PUBLIC_AUTHDOMAIN }}
-          PUBLIC_PROJECT_ID: ${{ secrets.PUBLIC_PROJECTID }}
-          PUBLIC_STORAGE_BUCKET: ${{ secrets.PUBLIC_STORAGEBUCKET }}
-          PUBLIC_APP_ID: ${{ secrets.PUBLIC_APPID }}
-          PUBLIC_MEASUREMENT_ID: ${{ secrets.PUBLIC_MEASUREMENTID }}
 
 
   deploy:
