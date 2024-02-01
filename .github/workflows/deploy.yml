@@ -14,14 +14,7 @@ permissions:
   pages: write
   id-token: write
 
-env :
-  PUBLIC_messagingSenderId: ${{ vars.PUBLIC_MESSAGINGSENDERID }}
-  PUBLIC_apiKey: ${{ vars.PUBLIC_APIKEY }} 
-  PUBLIC_authDomain: ${{ vars.PUBLIC_AUTHDOMAIN }} 
-  PUBLIC_projectId: ${{ vars.PUBLIC_PROJECTID }} 
-  PUBLIC_storageBucket: ${{ vars.PUBLIC_STORAGEBUCKET }} 
-  PUBLIC_appId: ${{ vars.PUBLIC_APPID }} 
-  PUBLIC_measurementId: ${{ vars.PUBLIC_MEASUREMENTID }} 
+
 
 jobs:
   build:
@@ -42,6 +35,16 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+
+      env :
+        PUBLIC_messagingSenderId: ${{ vars.PUBLIC_MESSAGINGSENDERID }}
+        PUBLIC_apiKey: ${{ vars.PUBLIC_APIKEY }} 
+        PUBLIC_authDomain: ${{ vars.PUBLIC_AUTHDOMAIN }} 
+        PUBLIC_projectId: ${{ vars.PUBLIC_PROJECTID }} 
+        PUBLIC_storageBucket: ${{ vars.PUBLIC_STORAGEBUCKET }} 
+        PUBLIC_appId: ${{ vars.PUBLIC_APPID }} 
+        PUBLIC_measurementId: ${{ vars.PUBLIC_MEASUREMENTID }} 
+        
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
