@@ -17,6 +17,23 @@ permissions:
 
 
 jobs:
+  trying-to-use-environment-secrets:
+    runs-on: ubuntu-latest
+    environment: github-pages #<---The only difference we need to specify what environment to use for environment secrets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Store variables
+        run: |
+          echo "PUBLIC_MESSAGING_SENDER_ID=${{ secrets.PUBLIC_MESSAGINGSENDERID }}"
+          echo "PUBLIC_API_KEY=${{ secrets.PUBLIC_APIKEY }}"
+          echo "PUBLIC_AUTH_DOMAIN=${{ secrets.PUBLIC_AUTHDOMAIN }}"
+          echo "PUBLIC_PROJECT_ID=${{ secrets.PUBLIC_PROJECTID }}"
+          echo "PUBLIC_STORAGE_BUCKET=${{ secrets.PUBLIC_STORAGEBUCKET }}"
+          echo "PUBLIC_APP_ID=${{ secrets.PUBLIC_APPID }}"
+          echo "PUBLIC_MEASUREMENT_ID=${{ secrets.PUBLIC_MEASUREMENTID }}"
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +61,7 @@ jobs:
         PUBLIC_storageBucket: ${{ vars.PUBLIC_STORAGEBUCKET }} 
         PUBLIC_appId: ${{ vars.PUBLIC_APPID }} 
         PUBLIC_measurementId: ${{ vars.PUBLIC_MEASUREMENTID }} 
-        
+
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
