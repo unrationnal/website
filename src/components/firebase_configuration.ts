@@ -13,9 +13,6 @@ const firebaseConfig = {
     measurementId: import.meta.env.PUBLIC_MEASUREMENT_ID,
 };
 
-console.log("the env var  is : ", import.meta.env)
-console.log("the var : ", firebaseConfig)
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
