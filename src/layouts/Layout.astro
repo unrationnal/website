@@ -4,13 +4,15 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const description = `Unrationnal is an agency that explores the horizon of the latest technological innovations and harnesses them to help you enjoy them in the simplest way possible.`
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="../../assets/vortex_logo.png" />
 		<meta name="generator" content={Astro.generator} />

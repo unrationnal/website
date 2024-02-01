@@ -30,10 +30,10 @@ export const GridCard:FC = () => {
 
             <section id="grid-card">
                 <Card image={testSrc} name="Social Media Critic" delay={delay} />
-                <Card description="Term and Services Specialist" image={testSrc_5} delay={delay*2}/>
-                <Card image={testSrc_3} name="Social Media Expert" description="Help you manage and develop your social media brand and reach more customers" delay={delay*3} />
+                <Card description="Term and Services Specialist" image={testSrc_5} delay={delay*2} link="https://chat.openai.com/g/g-G3nzyAZmr-terms-guide"/>
+                <Card image={testSrc_3} name="Youtube New Audience" description="We'll help you extend your audience by translating your videos to popular languages" delay={delay*3} />
                 <Card fontSize="0.6em" description='"Only those who will risk going too far can find out how possibly one can go"' italic={true} delay={delay*4}/>
-                <Card description="Master any subject with the Quiz Expert" image={testSrc_4} delay={delay*5} />
+                <Card description="Master any subject with the Quiz Expert" image={testSrc_4} delay={delay*5} link="https://chat.openai.com/g/g-FizGXCece-study-buddy" />
                 <Card name="LangFriend" description="Learn any new languague through friendly interactions" image={testSrc_1} delay={delay*6}/>
                 <Card name="Grocery" description="Manage your grocery list, your receipts and your shopping habit with the Grocery Expert" image={testSrc_2} delay={delay*7}/>
                 <Card description='"The best way to predict the future is to create it"' italic={true} delay={delay*8} />
@@ -49,10 +49,11 @@ interface CardProps {
     image? : string  ,
     fontSize? : string,
     italic? : boolean,
+    link? : string,
     delay : number,
 }
 
-const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fontSize=null, italic=false}) => {
+const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fontSize=null, italic=false, link=null}) => {
 
     image = null
 
@@ -70,7 +71,14 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
         hidden : { opacity : 0, transform : "translateY(100px)"}
     }
 
-    const slow_fast = [, .93, .41, .86]
+    
+    const exploring = () => {
+        if (!link){console.log("we are working on it");return}
+
+        // if link exist open new page
+        window.open(link, "_blank")?.focus()
+    }
+
     
     return (
         <motion.div className="grain-bg"
@@ -78,12 +86,7 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
         variants={variants}
         animate={{}}
         initial="hidden"
-        transition={{duration : 0.5, ease : slow_fast, delay : Math.pow(delay, 2)}}
-        // transition={{
-        //     y: { type: "spring", stiffness: 80 },
-        //          duration: 2,
-        //         delay: 0.2,
-        //   }}
+        transition={{duration : 0.5, ease : "linear", delay : Math.pow(delay, 2)}}
         whileInView="visible"
         viewport={{once : true}}
         >   
@@ -100,7 +103,7 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
             }
 
                 {(image || name) &&
-                <button>
+                <button onClick={()=>exploring()}>
                     <h4>Explore</h4>
                     <i className="fa-solid fa-arrow-right"></i>
                 </button>
