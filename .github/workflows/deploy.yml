@@ -23,13 +23,13 @@ jobs:
       - name: Install, build, and upload your site
         
         env :
-          PUBLIC_messagingSenderId : ${{ vars.PUBLIC_messagingSenderId }}
-          PUBLIC_apiKey : ${{ vars.PUBLIC_apiKey }} 
-          PUBLIC_authDomain : ${{ vars.PUBLIC_authDomain }} 
-          PUBLIC_projectId : ${{ vars.PUBLIC_projectId }} 
-          PUBLIC_storageBucket : ${{ vars.PUBLIC_storageBucket }} 
-          PUBLIC_appId : ${{ vars.PUBLIC_appId }} 
-          PUBLIC_measurementId : ${{ vars.PUBLIC_measurementId }} 
+          PUBLIC_messagingSenderId: ${{ vars.PUBLIC_MESSAGINGSENDERID }}
+          PUBLIC_apiKey: ${{ vars.PUBLIC_APIKEY }} 
+          PUBLIC_authDomain: ${{ vars.PUBLIC_AUTHDOMAIN }} 
+          PUBLIC_projectId: ${{ vars.PUBLIC_PROJECTID }} 
+          PUBLIC_storageBucket: ${{ vars.PUBLIC_STORAGEBUCKET }} 
+          PUBLIC_appId: ${{ vars.PUBLIC_APPID }} 
+          PUBLIC_measurementId: ${{ vars.PUBLIC_MEASUREMENTID }} 
         
         uses: withastro/action@v1
         # with:
