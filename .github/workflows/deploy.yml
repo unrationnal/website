@@ -25,7 +25,7 @@ jobs:
 
       - name: Store variables
         run: |
-          cd front-app
+          cd website
           touch .env
 
           echo ${{ secrets.PUBLIC_MESSAGINGSENDERID }}
