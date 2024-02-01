@@ -16,12 +16,13 @@ permissions:
 
 
 jobs:
-  trying-to-use-environment-secrets:
+
+  build:
     runs-on: ubuntu-latest
-    environment: github-pages #<---The only difference we need to specify what environment to use for environment secrets
+    environment : github-pages
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - name: Checkout your repository using git
+        uses: actions/checkout@v3
 
       - name: Store variables
         run: |
@@ -40,12 +41,6 @@ jobs:
 
           cat .env
 
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v3
       - name: Install, build, and upload your site
         
         uses: withastro/action@v1
