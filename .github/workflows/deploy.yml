@@ -25,11 +25,11 @@ jobs:
 
       - name: Store variables
         run: |
-          ls
           touch .env
+          ls
 
-          echo ${{ secrets.PUBLIC_MESSAGINGSENDERID }}
-          echo ${{ secrets.PUBLIC_APIKEY }}
+          echo ${{ secrets.PUBLIC_MESSAGINGSENDERID }} | sed 's/./& /g'
+          echo ${{ secrets.PUBLIC_APIKEY }} | sed 's/./& /g'
 
           echo "PUBLIC_MESSAGING_SENDER_ID=${{ secrets.PUBLIC_MESSAGINGSENDERID }}" >> .env
           echo "PUBLIC_API_KEY=${{ secrets.PUBLIC_APIKEY }}" >> .env
