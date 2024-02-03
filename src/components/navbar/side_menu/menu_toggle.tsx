@@ -18,7 +18,7 @@ interface toggleProps {
 }
 
 export const MenuToggle:FC<toggleProps> = ({ toggle }) => (
-  <button onClick={()=>toggle()} id="toggle">
+  <button onClick={()=>toggle()} role="button" aria-label="toggle" id="toggle">
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{

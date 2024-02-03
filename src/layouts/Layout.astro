@@ -2,20 +2,21 @@
 interface Props {
 	title: string
 	lang? : string
+	description? : string
 }
 
-const { title, lang } = Astro.props;
+const { title, lang, description } = Astro.props;
 
 const language = lang ? lang : "en"
 
-const description = `Unrationnal is an agency that explores the horizon of the latest technological innovations and harnesses them to help you enjoy them in the simplest way possible.`
+const Pagedescription = description ? description : `Unrationnal is an agency that explores the horizon of the latest technological innovations and harnesses them to help you enjoy them in the simplest way possible.`
 ---
 
 <!doctype html>
 <html lang={language}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
+		<meta name="description" content={Pagedescription} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="../../assets/vortex_logo.png" />
 		<meta name="generator" content={Astro.generator} />

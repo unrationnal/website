@@ -87,7 +87,7 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
         variants={variants}
         animate={{}}
         initial="hidden"
-        transition={{duration : 0.5, ease : slow_fast, delay : Math.pow(delay, 2)}}
+        transition={{duration : 1, ease : slow_fast, delay : Math.pow(delay, 2)}}
         whileInView="visible"
         viewport={{once : true}}
         >   
@@ -105,7 +105,7 @@ const Card:FC<CardProps> = ({delay, image=null, name=null, description=null, fon
 
                 {(image || name) &&
                 <button onClick={()=>exploring()}>
-                    <h4>Explore</h4>
+                    <p>Explore</p>
                     <i className="fa-solid fa-arrow-right"></i>
                 </button>
                 }

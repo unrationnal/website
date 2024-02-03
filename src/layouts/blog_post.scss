@@ -28,7 +28,7 @@
 
     header {
         color: #fff;
-        background-image: linear-gradient(to right, $iris ,$bright-purple) ;
+        background-image: linear-gradient(to right, $light-blue ,$light-purple) ;
         background-clip: text;
 
         h1 {
@@ -107,7 +107,7 @@
         transition: color 200ms linear;
         cursor: pointer;
         &:hover{
-            color: $bright-blue;
+            color: $light-blue;
         }
     }
 
