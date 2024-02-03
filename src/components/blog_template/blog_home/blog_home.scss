@@ -1,0 +1,148 @@
+
+@import "../../../layouts/colors";
+@import "../../../layouts/font";
+
+#blog {
+    header{
+        background-image: linear-gradient(to bottom right, $iris, $bright-purple);
+        background-clip: text;
+
+        h1 {
+            font-size: 1.5em;
+            font-family: $font-family-5;
+            color: transparent;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1em;
+            font-family: $font-family-5;
+            color: transparent;
+            text-align: center;
+        }
+    }
+
+    
+    .blog-card {
+        transition: all 200ms linear ;
+        background-color: #111111;
+
+        margin : 0.3em 0 ;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    
+        width: var(--blog-width);
+        height: 200px;
+        border-radius: 0.5em;
+        cursor: pointer;
+
+        box-shadow: .25rem .25rem 1.25rem rgba(87, 112, 255 ,.1) ;
+
+        &:hover{            
+            transform: translateY(-10px);
+    
+            .card-details{
+                a{
+                    h2 {
+                        color : $iris;
+                    }
+                }
+            }
+        }
+        }
+
+        .card-details{
+            height: 80%;
+            margin-left: 0.5em;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: start;
+            gap: 5px;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+                margin: 0;
+                padding: 0;
+                
+                span {
+                    padding: 0.1em 0.7em;
+                    background-image: linear-gradient(to right, $iris, $deep-iris);
+                    border-radius: 0.3em;
+                    font-family: $font-family-5;
+                    color: #fff;
+                    font-size: 0.4em;
+                    font-weight: 500;
+                }
+            }
+
+            a{
+                text-decoration: none;
+                h2 {
+                    width: 90%;
+                    font-family: $font-family-5;
+                    font-size: 0.50em;
+                    font-weight: 570;
+                    color: #fff;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+            
+            h4{
+                font-family: $font-family-5;
+                font-size: 0.4em;
+                font-weight: 570;
+                color: #ffffffcc;
+                margin: 0;
+                padding: 0;
+            }
+
+            hr{
+                width: 20%;
+                height: 2px;
+                border: 2px solid transparent;
+                border-top: 4px solid $iris;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        img {
+            width: 10vmax;
+            aspect-ratio: 1;
+            border-radius: 0.5em;
+            margin-left: 0.5em;
+        }
+}
+
+
+@media screen and (max-width: 767px) {
+    #blog {
+        header {
+            h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        .blog-card{
+
+            height: 150px;
+            margin: 0.5em 0;
+
+            .card-details{
+                h2 {
+                    font-size: 0.7em;
+                }
+            }
+
+
+            img {
+                width: 14vmax;
+            }
+        }
+    }
+}

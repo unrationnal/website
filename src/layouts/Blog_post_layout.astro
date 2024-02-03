@@ -1,0 +1,54 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import BlogLayout from "./Blog_layout.astro";
+import getTextDateWBy from "../components/blog_template/date_formatter";
+import ShareOnSocialMedia from "../components/blog_template/share_blog";
+
+import "./blog_post.scss"
+
+import BlogHeader from "../components/blog_template/micro_components/blog_header";
+import BlogImage from "../components/blog_template/micro_components/blog_img";
+
+
+type Props = MarkdownLayoutProps<{
+  // Define frontmatter props here
+  title: string;
+  author: string;
+  published: string;
+  updated : number;
+  image? : string;
+  lang : string;
+  tags : string[]
+}>;
+
+const { frontmatter } = Astro.props
+
+const date = getTextDateWBy(new Date(frontmatter.published), frontmatter.lang, frontmatter.updated === 1 ) + frontmatter.author
+
+---
+
+<BlogLayout title={frontmatter.title} lang={frontmatter.lang} >
+    <div id="blog-post">
+        
+        <div class="share-box">
+          <p>@Unrationnal</p>
+          <ShareOnSocialMedia title={frontmatter.title} url={Astro.props.url as string} client:load />
+        </div>
+        
+        <BlogHeader title={frontmatter.title} author={frontmatter.author} published={date} />
+        
+        {frontmatter.image &&
+        <BlogImage imgUrl={frontmatter.image} alt="intro image" />
+      }
+
+      <slot />
+
+      <hr />
+
+      <div class="share-box">
+        <p>@Unrationnal</p>
+        <ShareOnSocialMedia title={frontmatter.title} url={Astro.props.url as string} client:load />
+      </div>
+
+    </div>
+</BlogLayout>

@@ -1,0 +1,49 @@
+---
+import Layout from './Layout.astro';
+import FooterSection from '../components/main_page/footer/footer_section';
+// import Navbar from '../components/navbar/navbar.astro';
+import SideMenu from "../components/navbar/side_menu/sidebar"
+
+interface Props {
+	title: string;
+    lang? : string
+}
+
+const { title, lang } = Astro.props;
+
+const language = lang ? lang : "en"
+
+---
+
+
+<style lang="scss">
+    body {
+        width: 100%;
+        overflow-y: auto !important;
+    }
+
+    #blog {
+        width: var(--blog-width);
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<Layout title={title} lang={language}>
+
+    <SideMenu client:only />
+
+    <main id="blog">
+        <slot />
+    </main>
+
+    <!-- <FooterSection /> -->
+
+</Layout>
+
+
+
+

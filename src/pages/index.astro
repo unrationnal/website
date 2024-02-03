@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import App from "../layouts/App.astro"
-import Navbar from "../components/navbar/navbar.astro"
+// import Navbar from "../components/navbar/navbar.astro"
+import SideMenu from '../components/navbar/side_menu/sidebar';
 
 import Header from '../components/main_page/header/header.astro';
 
@@ -18,8 +19,9 @@ import Blob from '../components/blob/blob.astro';
   <Blob />
   
   <App>
+    <!-- <Navbar /> -->
+    <SideMenu client:only />
     <Header /> 
-    <Navbar />
     <ProjectWrapper /> 
     <FooterSection />
     

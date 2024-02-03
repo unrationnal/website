@@ -1,0 +1,106 @@
+
+@import "../../layouts/buttons";
+@import "../../layouts/colors";
+@import "../../layouts/font";
+
+#blog {
+    header {
+        color: #fff;
+        background-image: linear-gradient(to right, $iris ,$bright-purple) ;
+        background-clip: text;
+
+        h1 {
+            text-align: center;
+            font-family: $font-family-5;
+            font-size: 1em;
+            color: transparent;
+        }
+        h2{
+            text-align: center;
+            font-family: $font-family-5;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: transparent;
+        }
+
+        hr {
+            width: 90%;
+            border: 1px solid $iris;
+        }
+    }
+
+
+    .blog-image {
+        display: grid;
+        place-items: center;
+        width: 97%;
+
+        h3{
+            font-family: $font-family-5;
+            margin-top: 0em;
+            font-size: 0.5em;
+            color: #fff;
+        }
+        
+        picture{
+            img{
+                border-radius: 0.2em;
+                width: 100%;
+                margin-inline: auto;
+            }
+        }
+    }
+
+    .blog-text {
+        width: 97%;
+        h3 {
+            font-size: 1em;
+            color: #fff;
+            font-family: $font-family-5;
+        }
+
+        p {
+            font-size: 0.45em;
+            font-weight: 450;
+            line-height: 2em;
+            font-family: $font-family-5;
+            color: #fff;
+        }
+    }
+    
+    
+    .blog-footer {
+
+        width: 90%;
+        background-image: linear-gradient(to right, $iris ,$bright-purple) ;
+        background-clip: text;
+        
+        p {
+            font-size: 0.45em;
+            font-weight: 450;
+            line-height: 2em;
+            font-family: $font-family-5;
+            color: #fff;
+        }
+        
+        a{  
+            font-size: 0.45em;
+            font-weight: 450;
+            line-height: 2em;
+            font-family: $font-family-5;
+            text-decoration: none;
+            color: transparent;
+            transition: color 200ms linear;
+
+            &:hover{
+                color : $bright-blue ;
+            }
+        }
+
+
+        hr {
+            border: 1px solid $iris;
+        }
+
+    }
+}

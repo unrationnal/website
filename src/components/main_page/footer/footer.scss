@@ -35,6 +35,11 @@ footer {
         color: transparent;
         cursor: pointer;
 
+        a{
+            text-decoration: none;
+            color: transparent;
+        }
+
         &:hover{
             background-position: 100% 100%;
         }

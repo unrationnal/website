@@ -2,6 +2,7 @@
 import { type FC } from "react"
 
 import { Logo } from "./logo"
+import TrialButton from "./trail_buttons"
 
 import "./navbar.scss"
 
@@ -46,13 +47,3 @@ export const NavBar:FC<Props> = ({ hide=false }) => {
 //     )
 // }
 
-const TrialButton:FC<Props> = ({ hide }) => {
-    return (
-        <>
-        <button style={hide ? {opacity : 0} : {}}>
-            <a href="/formulaire"><h2>Join Waitlist</h2></a>
-            <i className="fa-solid fa-chevron-right" />
-        </button>
-        </>
-    )
-}

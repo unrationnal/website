@@ -1,0 +1,76 @@
+---
+import BlogLayout from "../layouts/Blog_layout.astro";
+import AccueilBlog from "../components/blog_template/blog_home/blog_index";
+
+
+interface Card {
+    title : string,
+    image : string,
+    published : string,
+    tags : string[],
+    url : string,
+}
+
+interface BlogMetadata{
+  // Define frontmatter props here
+  title: string;
+  author: string;
+  published: string;
+  updated : number;
+  image? : string;
+  lang : string;
+  tags : string[]
+  url : string
+}
+
+const lang = "en"
+
+// Dynamically import blog posts based on the language
+const BlogPosts = import.meta.glob("./blogs/en/*.md");
+
+// Use an immediately invoked async function and await its result
+const posts: BlogMetadata[] = await (async () => {
+    const fetched = [];
+
+    let infos;
+
+    for (const path in BlogPosts) {
+        // Dynamically import each markdown file
+
+        infos = await BlogPosts[path]() as any
+        infos.frontmatter.url = infos.url
+
+        // store url and metadata
+        fetched.push(infos.frontmatter as BlogMetadata);
+    }
+    // Await and return all promises from the imports
+    return fetched;
+})();
+
+// sorting by date
+posts.sort((a, b) => new Date(a.published).getTime() - new Date(b.published).getTime());
+
+posts.map(post => ({
+        title: post.title,
+        image: post.image || 'default-image-url', // Assuming a default image if none is provided
+        published: post.published,
+        tags: post.tags,
+        url: post.url,
+}));
+
+
+---
+
+<BlogLayout title="Blogs" lang={lang}>
+    
+    <script define:vars={{ posts }}>
+        console.log(posts)
+    </script>
+
+    <AccueilBlog blogs={
+        posts as Card[]
+    }/>
+
+
+
+</BlogLayout>
